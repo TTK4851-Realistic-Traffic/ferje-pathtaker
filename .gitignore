@@ -1,0 +1,19 @@
+
+venv
+
+**/.terraform/**
+*.tfstate
+*.tfstate.*
+
+out.zip
+
+.DS_Store
+.idea
+.vscode/**
+
+__pycache__
+
+tfapply
+
+# Ignore all actual files inside here, because they have not been properly scrambled yet
+ferjeimporter/tests/testdata/*.csv
