@@ -37,13 +37,14 @@ locals {
   }
 }
 
-module "ferjeimporter" {
+module "ferjepathtaker" {
   source = "../template"
   application_name = local.application_name
   environment = local.environment
-  function_handler = "main.handler"
   docker_image_tag = local.last_commit_sha
   tags = local.tags
+
+  ecr_repository_url = "314397620259.dkr.ecr.us-east-1.amazonaws.com"
 
   region = data.aws_region.current.name
 }

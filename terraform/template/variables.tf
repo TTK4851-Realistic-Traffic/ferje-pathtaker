@@ -10,13 +10,13 @@ variable "region" {
   type = string
 }
 
+variable "ecr_repository_url" {
+  type = string
+}
+
 variable "docker_image_tag" {
   type = string
   default = "latest"
-}
-
-variable "function_handler" {
-  type = string
 }
 
 variable "tags" {
