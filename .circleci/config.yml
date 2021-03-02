@@ -141,11 +141,17 @@ workflows:
     jobs:
 #      - build-and-test
       - push-docker-image:
+          context:
+            - Ferje Context
           filters:
             branches:
               only: master
-      - plan-production
+      - plan-production:
+          context:
+            - Ferje Context
       - apply-production:
+          context:
+            - Ferje Context
           requires:
             - push-docker-image
             - plan-production
