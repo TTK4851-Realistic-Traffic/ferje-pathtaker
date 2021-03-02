@@ -63,28 +63,28 @@ jobs:
             # Set default region here to prevent circleci from masking us-east-1 in terraform plans
             AWS_DEFAULT_REGION: us-east-1
             ECR_BASE_URL: "314397620259.dkr.ecr.us-east-1.amazonaws.com"
-          command: docker build -t $ECR_BASE_URL/ferje-pathtaker-prod:$CIRCLE_SHA1 --build-arg LAMBDA_PREFIX=ferjepathtaker .
+          command: docker build -t $ECR_BASE_URL/ferje-pathtaker:$CIRCLE_SHA1 --build-arg LAMBDA_PREFIX=ferjepathtaker .
       - run:
           name: Push
           environment:
             # Set default region here to prevent circleci from masking us-east-1 in terraform plans
             AWS_DEFAULT_REGION: us-east-1
             ECR_BASE_URL: "314397620259.dkr.ecr.us-east-1.amazonaws.com"
-          command: docker push $ECR_BASE_URL/ferje-pathtaker-prod:$CIRCLE_SHA1
+          command: docker push $ECR_BASE_URL/ferje-pathtaker:$CIRCLE_SHA1
       - run:
           name: Build ferje-pathtaker-ingest
           environment:
             # Set default region here to prevent circleci from masking us-east-1 in terraform plans
             AWS_DEFAULT_REGION: us-east-1
             ECR_BASE_URL: "314397620259.dkr.ecr.us-east-1.amazonaws.com"
-          command: docker build -t $ECR_BASE_URL/ferje-pathtaker-ingest-prod:$CIRCLE_SHA1 --build-arg LAMBDA_PREFIX=ferjepathtakeringest .
+          command: docker build -t $ECR_BASE_URL/ferje-pathtaker-ingest:$CIRCLE_SHA1 --build-arg LAMBDA_PREFIX=ferjepathtakeringest .
       - run:
           name: Push
           environment:
             # Set default region here to prevent circleci from masking us-east-1 in terraform plans
             AWS_DEFAULT_REGION: us-east-1
             ECR_BASE_URL: "314397620259.dkr.ecr.us-east-1.amazonaws.com"
-          command: docker push $ECR_BASE_URL/ferje-pathtaker-ingest-prod:$CIRCLE_SHA1
+          command: docker push $ECR_BASE_URL/ferje-pathtaker-ingest:$CIRCLE_SHA1
   plan-production:
     docker:
       - image: lindhagen/terraform-azure-util:0.14.3
