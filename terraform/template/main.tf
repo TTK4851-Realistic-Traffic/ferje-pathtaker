@@ -4,15 +4,6 @@ locals {
   qualified_name = "${var.application_name}-${var.environment}"
 }
 
-resource "aws_ecr_repository" "repo" {
-  name                 = local.qualified_name
-  image_tag_mutability = "MUTABLE"
-  tags = var.tags
-  image_scanning_configuration {
-    scan_on_push = false
-  }
-}
-
 resource "aws_iam_role" "iam_for_lambda" {
   name = "${local.qualified_name}-role"
 
