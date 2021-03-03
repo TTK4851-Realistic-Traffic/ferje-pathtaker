@@ -5,4 +5,4 @@ COPY ferjepathtakeringest/ ./ferjepathtakeringest
 COPY ./requirements-frozen.txt ./requirements-frozen.txt
 
 RUN pip3 install -r requirements-frozen.txt
-CMD ["./ferjepathtakeringest/main.handler"]
+CMD ["ferjepathtakeringest/main.handler"]
