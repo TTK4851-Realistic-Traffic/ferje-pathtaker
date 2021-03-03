@@ -4,6 +4,12 @@ locals {
   qualified_name = "${var.application_name}-${var.environment}"
 }
 
+////
+//
+// ferje-pathtaker
+//
+////
+
 resource "aws_iam_role" "pathtaker" {
   name = "${local.qualified_name}-role"
 
@@ -90,7 +96,11 @@ resource "aws_lambda_function" "ferjepathtaker" {
   ]
 }
 
+////
+//
 // ferje-pathtaker-ingest
+//
+////
 
 resource "aws_iam_role" "pathtaker_ingest" {
   name = "${local.qualified_name}-ingest-role"
@@ -182,4 +192,69 @@ resource "aws_lambda_function" "ferjepathtaker_ingest" {
     aws_iam_role_policy_attachment.pathtaker_ingest_allow_logs,
     aws_cloudwatch_log_group.pathtaker_ingest_logging,
   ]
+}
+
+////
+//
+// Elasticsearch (Database)
+//
+////
+
+resource "aws_elasticsearch_domain" "waypoints" {
+  domain_name = replace("${local.qualified_name}-waypoints", "-", "")
+  elasticsearch_version = "7.9"
+
+  cluster_config {
+    instance_count = 1
+    instance_type = "t3.small.elasticsearch"
+    dedicated_master_enabled = false
+    zone_awareness_enabled = false
+  }
+
+  snapshot_options {
+    automated_snapshot_start_hour = 0
+  }
+
+  domain_endpoint_options {
+    enforce_https = true
+    tls_security_policy = "Policy-Min-TLS-1-2-2019-07"
+  }
+
+  ebs_options {
+    ebs_enabled = true
+    volume_size = 10
+  }
+
+  tags = var.tags
+}
+
+# See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+resource "aws_iam_policy" "elasticsearch_manage" {
+  name        = "${local.qualified_name}-es-manage"
+  path        = "/"
+  description = "IAM policy for managing elasticsearch domain"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "es:ESHttpDelete",
+        "es:ESHttpGet",
+        "es:ESHttpHead",
+        "es:ESHttpPost",
+        "es:ESHttpPut"
+      ],
+      "Resource": "*",
+      "Effect": "Allow"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "elasticsearch_manage_from_ingest" {
+  role       = aws_iam_role.pathtaker_ingest.name
+  policy_arn = aws_iam_policy.elasticsearch_manage.arn
 }
