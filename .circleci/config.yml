@@ -143,9 +143,9 @@ workflows:
       - push-docker-image:
           context:
             - Ferje Context
-          filters:
-            branches:
-              only: master
+#          filters:
+#            branches:
+#              only: master
       - plan-production:
           context:
             - Ferje Context
@@ -155,6 +155,6 @@ workflows:
           requires:
             - push-docker-image
             - plan-production
-          filters:
-            branches:
-              only: master
+#          filters:
+#            branches:
+#              only: master

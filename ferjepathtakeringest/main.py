@@ -2,6 +2,8 @@ import boto3
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 
+from ferjepathtakeringest.indices import create_if_not_exists
+
 
 def _get_es() -> Elasticsearch:
     """
@@ -38,6 +40,7 @@ def handler(event, context):
 
     print('Elasticsearch info')
     print(es.info())
+    create_if_not_exists(es, 'ferry_waypoints')
 
     return {
         'statusCode': 200,
