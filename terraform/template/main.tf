@@ -2,7 +2,10 @@ data "aws_caller_identity" "current" {}
 
 locals {
   qualified_name = "${var.application_name}-${var.environment}"
+  elasticsearch_domain_name = replace("${local.qualified_name}-waypoints", "-", "")
 }
+
+data "aws_region" "current" {}
 
 ////
 //
@@ -166,7 +169,7 @@ resource "aws_lambda_function" "ferjepathtaker_ingest" {
   image_uri     = "${var.ecr_repository_url}/${var.application_name}-ingest:${var.docker_image_tag}"
   package_type  = "Image"
   function_name = "${local.qualified_name}-ingest"
-  role          = aws_iam_role.pathtaker.arn
+  role          = aws_iam_role.pathtaker_ingest.arn
   # This has to match the filename and function name in ../../ferjeimporter/main.py
   # That is to be executed
   handler       = null
@@ -201,7 +204,7 @@ resource "aws_lambda_function" "ferjepathtaker_ingest" {
 ////
 
 resource "aws_elasticsearch_domain" "waypoints" {
-  domain_name = replace("${local.qualified_name}-waypoints", "-", "")
+  domain_name = local.elasticsearch_domain_name
   elasticsearch_version = "7.9"
 
   cluster_config {
@@ -225,36 +228,51 @@ resource "aws_elasticsearch_domain" "waypoints" {
     volume_size = 10
   }
 
-  tags = var.tags
-}
-
-# See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-resource "aws_iam_policy" "elasticsearch_manage" {
-  name        = "${local.qualified_name}-es-manage"
-  path        = "/"
-  description = "IAM policy for managing elasticsearch domain"
-
-  policy = <<EOF
+  access_policies = <<POLICY
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Action": [
-        "es:ESHttpDelete",
-        "es:ESHttpGet",
-        "es:ESHttpHead",
-        "es:ESHttpPost",
-        "es:ESHttpPut"
-      ],
-      "Resource": "*",
+      "Action": ["es:*"],
+      "Principal": {
+        "AWS": ["${aws_iam_role.pathtaker_ingest.arn}"]
+      },
+      "Resource": "arn:aws:es:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:domain/${local.elasticsearch_domain_name}/*",
       "Effect": "Allow"
     }
   ]
 }
-EOF
+POLICY
+  tags = var.tags
 }
 
-resource "aws_iam_role_policy_attachment" "elasticsearch_manage_from_ingest" {
-  role       = aws_iam_role.pathtaker_ingest.name
-  policy_arn = aws_iam_policy.elasticsearch_manage.arn
-}
+//# See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+//resource "aws_iam_policy" "elasticsearch_manage" {
+//  name        = "${local.qualified_name}-es-manage"
+//  path        = "/"
+//  description = "IAM policy for managing elasticsearch domain"
+//
+//  policy = <<EOF
+//{
+//  "Version": "2012-10-17",
+//  "Statement": [
+//    {
+//      "Action": [
+//        "es:ESHttpDelete",
+//        "es:ESHttpGet",
+//        "es:ESHttpHead",
+//        "es:ESHttpPost",
+//        "es:ESHttpPut"
+//      ],
+//      "Resource": "*",
+//      "Effect": "Allow"
+//    }
+//  ]
+//}
+//EOF
+//}
+//
+//resource "aws_iam_role_policy_attachment" "elasticsearch_manage_from_ingest" {
+//  role       = aws_iam_role.pathtaker_ingest.name
+//  policy_arn = aws_iam_policy.elasticsearch_manage.arn
+//}
