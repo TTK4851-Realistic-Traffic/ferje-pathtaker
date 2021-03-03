@@ -11,7 +11,7 @@ def _get_es() -> Elasticsearch:
     :return:
     """
     print('Conecting to elasticsearch...')
-    elasticsearch_base_url = "https://search-ferjepathtakerprodwaypoints-daqt4o6t55kgljpmaeb3z57l2a.us-east-1.es.amazonaws.com"
+    elasticsearch_base_url = "search-ferjepathtakerprodwaypoints-daqt4o6t55kgljpmaeb3z57l2a.us-east-1.es.amazonaws.com"
     credentials = boto3.Session().get_credentials()
     service = 'es'
     region = 'us-east-1'
