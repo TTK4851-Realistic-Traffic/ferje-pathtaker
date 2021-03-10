@@ -32,8 +32,10 @@ def _get_es(server) -> Elasticsearch:
     awsauth = AWS4Auth(
         credentials.access_key,
         credentials.secret_key,
-        region='us-east-1',
-        service='es',
+        # Region
+        'us-east-1',
+        # Service
+        'es',
         session_token=credentials.token,
     )
 
