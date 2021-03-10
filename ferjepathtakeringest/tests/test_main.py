@@ -95,6 +95,15 @@ class TestSignalIngest(unittest.TestCase):
                 "ferryId": "ef35d14c602e335df133fcf9a8d87ff9d57739f966605d08fde0cce57ed856f8",
                 "metadata": {"length": -99, "width": 19},
             },
+            {
+                "timestamp": 1614843750000,
+                "location": {
+                    "lat": 63.6853,
+                    "lon": 9.668
+                },
+                "ferryId": "ef35d14c602e3322f133fcf9a8d87ff9d57739f966605d08fde0cce57ed856f8",
+                "metadata": {"length": -99, "width": 19},
+            },
         ]
 
         handler(_build_queue_test_event(test_messages), {})
@@ -113,6 +122,6 @@ class TestSignalIngest(unittest.TestCase):
 
         ferry_ids = [message['ferryId'] for message in test_messages]
         for hit in hits:
-            source = hit['_source']
+            source = hit['_source']['doc']
             self.assertIn(source['ferryId'], ferry_ids)
 

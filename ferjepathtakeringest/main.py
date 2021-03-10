@@ -2,12 +2,24 @@ from typing import List
 import os
 import boto3
 import json
-from elasticsearch import Elasticsearch, RequestsHttpConnection
+from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
 from requests_aws4auth import AWS4Auth
 
 from ferjepathtakeringest.indices import create_if_not_exists
 
 ELASTICSEARCH_INDEX_NAME = 'ferry_waypoings'
+
+
+def flatten(items: List[list]) -> list:
+    """
+    Converts a list of lists into a one-dimensional list.
+    [[1,2,3], [4], [5,6]] -> [1,2,3,4,5,6]
+    """
+    flattened = []
+    for inner_items in items:
+        for item in inner_items:
+            flattened.append(item)
+    return flattened
 
 
 def _get_es(server) -> Elasticsearch:
@@ -59,44 +71,31 @@ def _build_id(document) -> str:
 
 
 def _get_messages_from_event(event: dict) -> List[dict]:
-    return [json.loads(record['body']) for record in event['Records']]
+    return flatten([json.loads(record['body']) for record in event['Records']])
+
+
+def _ferry_messages_to_es_bodies(messages: List[dict]) -> List[dict]:
+    bodies = []
+    for message in messages:
+        bodies.append({
+            '_id': _build_id(message),
+            'doc_type': 'waypoint',
+            'doc': message,
+        })
+    return bodies
 
 
 def handler(event, context):
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
     print(f'Event: {event}')
     es = _get_es(elasticsearch_hostname)
-    print(f'Elasticsearch info: {es.info()}')
     # Ensure the index exists before we try to push data to it
     create_if_not_exists(es, ELASTICSEARCH_INDEX_NAME)
 
-    documents = [
-        {
-            "timestamp": 1614843750000,
-            "location": {
-                'lat': 63.6853,
-                'lon': 9.668,
-            },
-            'ferryId': 'ef35d14c602e335df133fcf9a8d87ff9d57739f966605d08fde0cce57ed856f8',
-            'metadata': {
-                'length': -99,
-                'width': 19,
-            },
-        },
-    ]
+    messages = _get_messages_from_event(event)
+    es_upload_entries = _ferry_messages_to_es_bodies(messages)
 
-    for document in documents:
-        es.index(index=ELASTICSEARCH_INDEX_NAME, id=_build_id(document), body=document)
-
-    body = es.search(index=ELASTICSEARCH_INDEX_NAME, body={
-        'size': 10000,
-        'query': {
-            'match_all': {}
-        }
-    })
-
-    print('Stored items in index')
-    print(body)
+    helpers.bulk(es, es_upload_entries, index=ELASTICSEARCH_INDEX_NAME)
 
     return {
         'statusCode': 200,
