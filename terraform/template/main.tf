@@ -197,6 +197,53 @@ resource "aws_lambda_function" "ferjepathtaker_ingest" {
   ]
 }
 
+// AWS Lambda Trigger
+
+data "aws_sqs_queue" "lambda_trigger" {
+  name = var.lambda_trigger_queue_name
+}
+
+// This is a role that give the necessary access to Trigger and read messages from an SQS-queue
+resource "aws_iam_policy" "allow_to_trigger_on_queue_message" {
+  name        = "${local.qualified_name}-lambda-read-queue"
+  path        = "/"
+  description = "IAM policy which allows lambda to push to an SQS queue"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SQSTriggerOnMessage",
+      "Effect": "Allow",
+      "Action": [
+        "sqs:ReceiveMessage",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+      ],
+      "Resource": [
+        "${data.aws_sqs_queue.lambda_trigger.arn}"
+      ]
+    }
+  ]
+}
+EOF
+}
+
+// Give ferje-pathaker-ingest the necessary access to trigger on new messagesin SQS
+resource "aws_iam_role_policy_attachment" "ferje_ingest_trigger_on_queue" {
+  role       = aws_iam_role.pathtaker_ingest.name
+  policy_arn = aws_iam_policy.allow_to_trigger_on_queue_message.arn
+}
+
+resource "aws_lambda_event_source_mapping" "trigger_on_message" {
+  event_source_arn = data.aws_sqs_queue.lambda_trigger.arn
+  function_name    = aws_lambda_function.ferjepathtaker_ingest.arn
+  enabled = true
+
+  depends_on = [aws_iam_role_policy_attachment.ferje_ingest_trigger_on_queue]
+}
+
 ////
 //
 // Elasticsearch (Database)

@@ -6,6 +6,11 @@ variable "environment" {
   type = string
 }
 
+variable "lambda_trigger_queue_name" {
+  type = string
+  description = "Name of the queue which will trigger the AWS lambda"
+}
+
 variable "region" {
   type = string
 }

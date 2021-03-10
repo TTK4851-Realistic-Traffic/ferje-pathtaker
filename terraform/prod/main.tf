@@ -45,6 +45,7 @@ module "ferjepathtaker" {
   tags = local.tags
 
   ecr_repository_url = "314397620259.dkr.ecr.us-east-1.amazonaws.com"
+  lambda_trigger_queue_name = "ferje-ais-importer-prod-pathtaker-source"
 
   region = data.aws_region.current.name
 }
