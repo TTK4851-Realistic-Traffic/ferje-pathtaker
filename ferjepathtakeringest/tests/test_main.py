@@ -92,6 +92,7 @@ class TestSignalIngest(unittest.TestCase):
                     "lat": 63.6853,
                     "lon": 9.668
                 },
+                "source": "ais",
                 "ferryId": "ef35d14c602e335df133fcf9a8d87ff9d57739f966605d08fde0cce57ed856f8",
                 "metadata": {"length": -99, "width": 19},
             },
@@ -101,6 +102,7 @@ class TestSignalIngest(unittest.TestCase):
                     "lat": 63.6853,
                     "lon": 9.668
                 },
+                "source": "ais",
                 "ferryId": "ef35d14c602e3322f133fcf9a8d87ff9d57739f966605d08fde0cce57ed856f8",
                 "metadata": {"length": -99, "width": 19},
             },

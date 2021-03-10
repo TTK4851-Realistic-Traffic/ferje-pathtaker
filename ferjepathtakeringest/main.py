@@ -99,9 +99,7 @@ def handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': {
-            'hello': 'world',
-        },
+        'body': {'ok': True},
     }
 
 
