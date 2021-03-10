@@ -1,4 +1,7 @@
+from typing import List
+import os
 import boto3
+import json
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 
@@ -6,29 +9,36 @@ from ferjepathtakeringest.indices import create_if_not_exists
 
 ELASTICSEARCH_INDEX_NAME = 'ferry_waypoings'
 
-def _get_es() -> Elasticsearch:
+
+def _get_es(server) -> Elasticsearch:
     """
     Setup inspired by:
     https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html#es-request-signing-python
 
     :return:
     """
-    print('Conecting to elasticsearch...')
-    elasticsearch_base_url = "search-ferjepathtakerprodwaypoints-daqt4o6t55kgljpmaeb3z57l2a.us-east-1.es.amazonaws.com"
+    print(f'Connecting to elasticsearch: {server}...')
+
+    # In situations where we are using a local system
+    if 'localhost' in server:
+        # Assumes that the last part of the server string is only the port number
+        # i.e localhost:9200 or localhost:555772
+        port = int(server.split(':')[1])
+        return Elasticsearch(
+            hosts=[{'host': 'localhost', 'port': port}]
+        )
+
     credentials = boto3.Session().get_credentials()
-    service = 'es'
-    region = 'us-east-1'
-    print(f'\tConfiguring elasticsearch AWS authentication: Access Key {credentials.access_key[0:5]}...')
     awsauth = AWS4Auth(
         credentials.access_key,
         credentials.secret_key,
-        region,
-        service,
+        region='us-east-1',
+        service='es',
         session_token=credentials.token,
     )
 
     return Elasticsearch(
-        hosts=[{'host': elasticsearch_base_url, 'port': 443}],
+        hosts=[{'host': server, 'port': 443}],
         http_auth=awsauth,
         use_ssl=True,
         verify_certs=True,
@@ -46,15 +56,16 @@ def _build_id(document) -> str:
     return f'{document["timestamp"]}-{document["location"]["lat"]}-{document["location"]["lon"]}-{document["ferryId"]}'
 
 
-def handler(event, context):
-    print('Event')
-    print(event)
-    print('Context')
-    print(context)
-    es = _get_es()
+def _get_messages_from_event(event: dict) -> List[dict]:
+    return [json.loads(record['body']) for record in event['Records']]
 
-    print('Elasticsearch info')
-    print(es.info())
+
+def handler(event, context):
+    elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
+    print(f'Event: {event}')
+    es = _get_es(elasticsearch_hostname)
+    print(f'Elasticsearch info: {es.info()}')
+    # Ensure the index exists before we try to push data to it
     create_if_not_exists(es, ELASTICSEARCH_INDEX_NAME)
 
     documents = [

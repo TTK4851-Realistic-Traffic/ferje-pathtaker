@@ -188,6 +188,7 @@ resource "aws_lambda_function" "ferjepathtaker_ingest" {
   environment {
     variables = {
       foo = "bar"
+      ELASTICSEARCH_HOSTNAME = aws_elasticsearch_domain.waypoints.domain_name
     }
   }
 
