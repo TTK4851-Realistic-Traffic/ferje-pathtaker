@@ -9,8 +9,8 @@ data "aws_region" "current" {}
 
 // Used to give clients
 resource "random_password" "api_auth_secret" {
-  length           = 32
-  special          = false
+  length = 32
+  special = false
   min_lower = 3
   min_numeric = 5
   min_upper = 3
@@ -123,23 +123,27 @@ resource "aws_api_gateway_integration" "ferjepathtaker_get_waypoints" {
 }
 
 resource "aws_api_gateway_deployment" "ferjepathtaker_get_waypoints" {
-   depends_on = [
-     aws_api_gateway_integration.ferjepathtaker_get_waypoints,
-   ]
+  depends_on = [
+    aws_api_gateway_integration.ferjepathtaker_get_waypoints,
+  ]
 
-   rest_api_id = aws_api_gateway_rest_api.ferjepathtaker.id
-   stage_name  = var.environment
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  rest_api_id = aws_api_gateway_rest_api.ferjepathtaker.id
+  stage_name = var.environment
 }
 
 resource "aws_lambda_permission" "ferjepathtaker_allow_any_subpaths" {
-   statement_id  = "AllowAPIGatewayInvoke"
-   action        = "lambda:InvokeFunction"
-   function_name = aws_lambda_function.ferjepathtaker.function_name
-   principal     = "apigateway.amazonaws.com"
+  statement_id = "AllowAPIGatewayInvoke"
+  action = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.ferjepathtaker.function_name
+  principal = "apigateway.amazonaws.com"
 
-   # The "/*/*" portion grants access from any method on any resource
-   # within the API Gateway REST API.
-   source_arn = "${aws_api_gateway_rest_api.ferjepathtaker.execution_arn}/*/*"
+  # The "/*/*" portion grants access from any method on any resource
+  # within the API Gateway REST API.
+  source_arn = "${aws_api_gateway_rest_api.ferjepathtaker.execution_arn}/*/*"
 }
 
 resource "aws_lambda_function" "ferjepathtaker" {
@@ -355,7 +359,7 @@ resource "aws_elasticsearch_domain" "waypoints" {
     {
       "Action": ["es:*"],
       "Principal": {
-        "AWS": ["${aws_iam_role.pathtaker_ingest.arn}"]
+        "AWS": ["${aws_iam_role.pathtaker_ingest.arn}", "${aws_iam_role.pathtaker.arn}"]
       },
       "Resource": "arn:aws:es:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:domain/${local.elasticsearch_domain_name}/*",
       "Effect": "Allow"

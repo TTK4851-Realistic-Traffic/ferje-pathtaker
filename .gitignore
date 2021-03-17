@@ -19,3 +19,4 @@ tfapply
 ferjeimporter/tests/testdata/*.csv
 
 *-secrets.env
+http-client.private.env.json

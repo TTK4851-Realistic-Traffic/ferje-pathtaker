@@ -73,6 +73,24 @@ def _get_es(server) -> Elasticsearch:
     )
 
 
+def _build_response_body(es_hits: dict):
+    items = []
+
+    if 'hits' not in es_hits and 'hits' not in es_hits['hits']:
+        return items
+
+    for hit in es_hits['hits']['hits']:
+        source = hit['_source']
+        items.append({
+            'ferryId': source['ferryId'],
+            'timestamp': source['timestamp'],
+            'location': source['location'],
+            'metadta': source['metadata']
+        })
+
+    return items
+
+
 def handler(event, context):
     print(f'Event: {event}')
 
@@ -99,9 +117,9 @@ def handler(event, context):
         }
     })
     print(body)
+    response = _build_response_body(body)
+    print(response)
     return {
         'statusCode': 200,
-        'body': json.dumps({
-            'hello': 'world',
-        }),
+        'body': json.dumps(response),
     }
