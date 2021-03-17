@@ -1,6 +1,7 @@
 import json
 import os
 import base64
+from typing import List
 
 import boto3
 from elasticsearch import Elasticsearch, RequestsHttpConnection
@@ -31,7 +32,8 @@ def _require_authorized_client(http_basic: tuple):
     client_secret = os.environ['API_CLIENT_SECRET']
 
     if client_id != http_basic[0] or client_secret != http_basic[1]:
-        print(f'Client id or client secret is not correct: Client ID: {client_id != http_basic[0]}, Client Secret: {client_secret != http_basic[1]}')
+        print(
+            f'Client id or client secret is not correct: Client ID: {client_id != http_basic[0]}, Client Secret: {client_secret != http_basic[1]}')
         raise ValueError('Invalid credentials! Please check they are correctly HTTP basic formated')
 
 
@@ -85,10 +87,38 @@ def _build_response_body(es_hits: dict):
             'ferryId': source['ferryId'],
             'timestamp': source['timestamp'],
             'location': source['location'],
-            'metadta': source['metadata']
+            'metadata': source['metadata']
         })
 
     return items
+
+
+def _convert_response_to_csv(response: List[dict]) -> str:
+    rows = [
+        ['ferryId', 'timestamp', 'lat', 'lon', 'heading', 'length', 'width']
+    ]
+
+    # The CSV does not know what None is, we call it "null"
+    csv_friendly_null = 'null'
+
+    for item in response:
+        print(f'Converting response item to csv: {item}')
+        row = [
+            item['ferryId'],
+            str(item['timestamp']),
+            str(item['location']['lat']),
+            str(item['location']['lon']),
+            str(item['metadata']['heading']) if 'heading' in item['metadata'] else csv_friendly_null,
+            str(item['metadata']['length']) if 'length' in item['metadata'] else csv_friendly_null,
+            str(item['metadata']['width']) if 'width' in item['metadata'] else csv_friendly_null,
+        ]
+        rows.append(row)
+
+    csv = []
+    for row in rows:
+        csv.append(','.join(row))
+    print(f'Complete CSV file: {csv}')
+    return '\n'.join(csv)
 
 
 def handler(event, context):
@@ -118,8 +148,12 @@ def handler(event, context):
     })
     print(body)
     response = _build_response_body(body)
+    csv_response = _convert_response_to_csv(response)
     print(response)
     return {
         'statusCode': 200,
-        'body': json.dumps(response),
+        'headers': {
+          'content-type': 'text/csv',
+        },
+        'body': csv_response,
     }
