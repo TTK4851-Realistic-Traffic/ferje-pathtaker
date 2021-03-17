@@ -67,7 +67,7 @@ def _build_id(document) -> str:
     :param document:
     :return:
     """
-    return f'{str(document["timestamp"])}-{str(document["location"]["lat"])}-{str(document["location"]["lon"])}-{document["ferryId"]}'
+    return f'{str(document["timestamp"])}-{str(document["lat"])}-{str(document["lon"])}-{document["ferryId"]}'
 
 
 def _get_messages_from_event(event: dict) -> List[dict]:
