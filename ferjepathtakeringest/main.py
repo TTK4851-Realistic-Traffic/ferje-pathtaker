@@ -71,7 +71,15 @@ def _build_id(document) -> str:
 
 
 def _get_messages_from_event(event: dict) -> List[dict]:
-    return flatten([json.loads(record['body']) for record in event['Records']])
+    messages = []
+
+    for record in event['Records']:
+        try:
+            body = json.loads(record['body'])
+            messages.append(body)
+        except Exception as err:
+            print(f'Failed to parse message, with error{str(err)}. Message: {record["body"]}')
+    return flatten(messages)
 
 
 def _ferry_messages_to_es_bodies(messages: List[dict]) -> List[dict]:
