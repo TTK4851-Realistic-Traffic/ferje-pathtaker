@@ -1,0 +1,2 @@
+GET https://xy30qatok2.execute-api.us-east-1.amazonaws.com/prod/waypoints
+Authorization: Basic gemini <password>
