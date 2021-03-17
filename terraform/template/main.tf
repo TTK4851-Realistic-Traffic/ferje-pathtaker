@@ -7,6 +7,24 @@ locals {
 
 data "aws_region" "current" {}
 
+// Used to give clients
+resource "random_password" "api_auth_secret" {
+  length           = 32
+  special          = false
+  min_lower = 3
+  min_numeric = 5
+  min_upper = 3
+}
+
+// Store the contents locally
+resource "local_file" "api_auth_credentials" {
+  filename = "../../${var.environment}-secrets.env"
+  sensitive_content = <<EOF
+API_CLIENT_ID=gemini
+API_CLIENT_SECRET=${random_password.api_auth_secret.result}
+EOF
+}
+
 ////
 //
 // ferje-pathtaker
@@ -101,6 +119,7 @@ resource "aws_api_gateway_integration" "ferjepathtaker_get_waypoints" {
   integration_http_method = "POST"
   type = "AWS_PROXY"
   uri = aws_lambda_function.ferjepathtaker.invoke_arn
+  timeout_milliseconds = 29000
 }
 
 resource "aws_api_gateway_deployment" "ferjepathtaker_get_waypoints" {
@@ -140,6 +159,8 @@ resource "aws_lambda_function" "ferjepathtaker" {
 
   environment {
     variables = {
+      API_CLIENT_ID = "gemini"
+      API_CLIENT_SECRET = random_password.api_auth_secret.result
       ELASTICSEARCH_HOSTNAME = aws_elasticsearch_domain.waypoints.endpoint
     }
   }

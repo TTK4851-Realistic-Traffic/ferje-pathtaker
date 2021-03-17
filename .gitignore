@@ -17,3 +17,5 @@ tfapply
 
 # Ignore all actual files inside here, because they have not been properly scrambled yet
 ferjeimporter/tests/testdata/*.csv
+
+*-secrets.env
