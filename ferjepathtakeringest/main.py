@@ -7,7 +7,7 @@ from requests_aws4auth import AWS4Auth
 
 from ferjepathtakeringest.indices import create_if_not_exists
 
-ELASTICSEARCH_INDEX_NAME = 'ferry_waypoings'
+ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
 
 
 def flatten(items: List[list]) -> list:
@@ -87,8 +87,7 @@ def _ferry_messages_to_es_bodies(messages: List[dict]) -> List[dict]:
     for message in messages:
         bodies.append({
             '_id': _build_id(message),
-            'doc_type': 'waypoint',
-            'doc': message,
+            **message,
         })
     return bodies
 

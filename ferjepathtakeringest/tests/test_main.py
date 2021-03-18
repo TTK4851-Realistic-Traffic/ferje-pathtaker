@@ -120,6 +120,6 @@ class TestSignalIngest(unittest.TestCase):
 
         ferry_ids = [message['ferryId'] for message in test_messages]
         for hit in hits:
-            source = hit['_source']['doc']
+            source = hit['_source']
             self.assertIn(source['ferryId'], ferry_ids)
 
