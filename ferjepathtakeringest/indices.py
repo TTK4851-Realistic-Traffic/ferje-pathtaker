@@ -11,14 +11,6 @@ def _exists_index(es_client, index_name):
 
 
 def create_if_not_exists(es_client: Elasticsearch, index_name: str):
-    if _exists_index(es_client, 'ferry_waypoings'):
-        print('Outdated client with typo is present. Removing...')
-        es_client.indices.delete(index='ferry_waypoings')
-
-    if _exists_index(es_client, index_name):
-        print('Cleaning up existing index for a fresh setup')
-        es_client.indices.delete(index=index_name)
-
     if not _exists_index(es_client, index_name):
         print('Creating index...')
         print(es_client.indices.create(index=index_name))
