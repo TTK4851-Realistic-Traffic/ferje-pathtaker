@@ -7,7 +7,7 @@ import boto3
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 
-ELASTICSEARCH_INDEX_NAME = 'ferry_waypoings'
+ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
 
 
 def _get_client_authorizers(headers):
