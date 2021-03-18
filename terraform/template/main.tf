@@ -122,6 +122,12 @@ resource "aws_api_gateway_integration" "ferjepathtaker_get_waypoints" {
   timeout_milliseconds = 29000
 }
 
+// IMPORTANT!
+// Any changes done to the api_gateway may not be reflected in the actual environment
+// because an api_gateway_deployment has not been conducted, given that this resource has not changed.
+// A workaround is to simply run a deployment form the AWS console or taint this resource. However,
+// the first alternative is much simpler. A deployment can be triggered from
+// https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/xy30qatok2/resources/nm2dg0/methods/GET
 resource "aws_api_gateway_deployment" "ferjepathtaker_get_waypoints" {
   depends_on = [
     aws_api_gateway_integration.ferjepathtaker_get_waypoints,
