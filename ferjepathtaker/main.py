@@ -5,6 +5,7 @@ from typing import List
 
 import boto3
 from elasticsearch import Elasticsearch, RequestsHttpConnection
+from elasticsearch_dsl import Search
 from requests_aws4auth import AWS4Auth
 
 ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
@@ -121,8 +122,42 @@ def _convert_response_to_csv(response: List[dict]) -> str:
     return '\n'.join(csv)
 
 
+def _extract_query_params(event):
+    if 'queryStringParameters' not in event:
+        raise ValueError('Event did not include any query-string, please include them!')
+    raw_query = event["queryStringParameters"]
+    start = raw_query['start']
+    start = int(start)
+    end = raw_query['end']
+    end = int(end)
+    min_lat = raw_query['min_lat']
+    min_lat = float(min_lat)
+    min_lon = raw_query['min_lon']
+    min_lon = float(min_lon)
+    max_lat = raw_query['max_lat']
+    max_lat = float(max_lat)
+    max_lon = raw_query['max_lon']
+    max_lon = float(max_lon)
+
+    return {
+        'start': start,
+        'end': end,
+        'min': {
+            'lat': min_lat,
+            'lon': min_lon,
+        },
+        'max': {
+            'lat': max_lat,
+            'lon': max_lon,
+        },
+    }
+
+
 def handler(event, context):
     print(f'Event: {event}')
+
+    query = event["queryStringParameters"]
+    print(f'Query parameters: {query}')
 
     # Ensure only valid requests are included
     try:
@@ -137,8 +172,25 @@ def handler(event, context):
             }),
         }
 
+    params = {}
+
+    try:
+        params = _extract_query_params(event)
+    except ValueError as err:
+        print(f'Could not extract query parameters from event: {event}. Error: {str(err)}')
+        return {
+            'statusCode': 400,
+            'body': json.dumps({
+                'title': 'Invalid parameters',
+                'detail': str(err),
+            }),
+        }
+
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
     es = _get_es(elasticsearch_hostname)
+
+    # search = Search()
+    # search.filter('')
 
     body = es.search(index=ELASTICSEARCH_INDEX_NAME, body={
         'size': 10000,

@@ -107,6 +107,15 @@ resource "aws_api_gateway_method" "ferjepathtaker_get_waypoints" {
   http_method = "GET"
   // Currently set to none, but will in the future use Lambda Authorizer for Bearer Auth
   authorization = "NONE"
+
+  request_parameters = {
+    "method.request.querystring.start" = false
+    "method.request.querystring.end" = false
+    "method.request.querystring.min_lon" = false
+    "method.request.querystring.min_lat" = false
+    "method.request.querystring.max_lon" = false
+    "method.request.querystring.max_lat" = false
+  }
 }
 
 resource "aws_api_gateway_integration" "ferjepathtaker_get_waypoints" {

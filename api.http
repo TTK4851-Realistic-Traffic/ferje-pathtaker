@@ -1,2 +1,2 @@
-GET https://xy30qatok2.execute-api.us-east-1.amazonaws.com/prod/waypoints
+GET https://xy30qatok2.execute-api.us-east-1.amazonaws.com/prod/waypoints?start=7777777&end=888888&min_lat=63.23&min_lon=23&max_lat=98.33&max_lon=40
 Authorization: Basic gemini {{ client_secret }}
