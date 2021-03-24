@@ -73,7 +73,7 @@ def _build_id(document) -> str:
     :param document:
     :return:
     """
-    return f'{str(document["timestamp"])}-{str(document["lat"])}-{str(document["lon"])}-{document["ferryId"]}'
+    return f'{str(document["timestamp"])}-{str(document["location"]["lat"])}-{str(document["location"]["lon"])}-{document["ferryId"]}'
 
 
 def _get_messages_from_event(event: dict) -> List[dict]:
@@ -87,9 +87,20 @@ def _get_messages_from_event(event: dict) -> List[dict]:
             print(f'Failed to parse message, with error {str(err)}. Message: {record["body"]}')
 
     messages = flatten(messages)
-    # Do some post-processing of the messages
+    # Do some additional processing of the data
     for index, message in enumerate(messages):
-        messages[index]['timestamp'] = _timestamp_as_epoch_milliseconds(message['timestamp'])
+        # Enforce the correct structure of the persisted data
+        updated_message = {
+            'ferryId': message['ferryId'],
+            'location': {
+                'lat': message['lat'],
+                'lon': message['lon'],
+            },
+            'timestamp': _timestamp_as_epoch_milliseconds(message['timestamp']),
+            'source': message['source'],
+            'metadata': message['metadata'],
+        }
+        messages[index] = updated_message
 
     return messages
 

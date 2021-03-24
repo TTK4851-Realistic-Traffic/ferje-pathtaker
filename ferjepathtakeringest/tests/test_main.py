@@ -87,7 +87,7 @@ class TestSignalIngest(unittest.TestCase):
     def test_successful_write_to_elasticsearch(self):
         test_messages = [
             {
-                "timestamp": 1614843750000,
+                "timestamp": '2018-07-01 18:22:35+00:00',
                 "lat": 63.6853,
                 "lon": 9.668,
                 "source": "ais",
@@ -95,7 +95,7 @@ class TestSignalIngest(unittest.TestCase):
                 "metadata": {"length": -99, "width": 19},
             },
             {
-                "timestamp": 1614843750000,
+                "timestamp": '2018-07-01 18:22:33+00:00',
                 "lat": 63.6853,
                 "lon": 9.668,
                 "source": "ais",
@@ -122,4 +122,5 @@ class TestSignalIngest(unittest.TestCase):
         for hit in hits:
             source = hit['_source']
             self.assertIn(source['ferryId'], ferry_ids)
+            self.assertIn('location', source)
 
