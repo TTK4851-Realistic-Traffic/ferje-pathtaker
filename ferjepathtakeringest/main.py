@@ -82,11 +82,16 @@ def _get_messages_from_event(event: dict) -> List[dict]:
     for record in event['Records']:
         try:
             body = json.loads(record['body'])
-            body['timestamp'] = _timestamp_as_epoch_milliseconds(body['timestamp'])
             messages.append(body)
         except Exception as err:
-            print(f'Failed to parse message, with error{str(err)}. Message: {record["body"]}')
-    return flatten(messages)
+            print(f'Failed to parse message, with error {str(err)}. Message: {record["body"]}')
+
+    messages = flatten(messages)
+    # Do some post-processing of the messages
+    for index, message in enumerate(messages):
+        messages[index]['timestamp'] = _timestamp_as_epoch_milliseconds(message['timestamp'])
+
+    return messages
 
 
 def _ferry_messages_to_es_bodies(messages: List[dict]) -> List[dict]:
