@@ -173,7 +173,8 @@ def _remove_invalid_data(es, es_hits):
         else:
             updated_hits.append(hit)
 
-    return updated_hits
+    es_hits['hits']['hits'] = updated_hits
+    return es_hits
 
 
 def handler(event, context):
