@@ -2,12 +2,18 @@ from typing import List
 import os
 import boto3
 import json
+from datetime import datetime
 from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
 from requests_aws4auth import AWS4Auth
 
 from ferjepathtakeringest.indices import create_if_not_exists
 
 ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
+
+
+def _timestamp_as_epoch_milliseconds(timestamp: str) -> int:
+    as_datetime = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S%z')
+    return int(as_datetime.timestamp())
 
 
 def flatten(items: List[list]) -> list:
@@ -76,6 +82,7 @@ def _get_messages_from_event(event: dict) -> List[dict]:
     for record in event['Records']:
         try:
             body = json.loads(record['body'])
+            body['timestamp'] = _timestamp_as_epoch_milliseconds(body['timestamp'])
             messages.append(body)
         except Exception as err:
             print(f'Failed to parse message, with error{str(err)}. Message: {record["body"]}')
