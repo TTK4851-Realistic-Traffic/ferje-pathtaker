@@ -153,6 +153,29 @@ def _extract_query_params(event):
     }
 
 
+def _remove_invalid_data(es, es_hits):
+    """
+    Removes any data that does not follow the expected structure from the Elasticsearch index,
+    and the result-set.
+    :param es:
+    :param es_hits:
+    :return:
+    """
+    if 'hits' not in es_hits and 'hits' not in es_hits['hits']:
+        return es_hits
+
+    updated_hits = []
+    for hit in es_hits['hits']['hits']:
+        source = hit['_source']
+        if 'location' not in source:
+            print(f'Found invalid hit. Removing... {hit}')
+            es.delete(ELASTICSEARCH_INDEX_NAME, hit['_id'])
+        else:
+            updated_hits.append(hit)
+
+    return updated_hits
+
+
 def handler(event, context):
     print(f'Event: {event}')
 
@@ -199,6 +222,8 @@ def handler(event, context):
         }
     })
     print(body)
+    body = _remove_invalid_data(es, body)
+
     response = _build_response_body(body)
     csv_response = _convert_response_to_csv(response)
     print(response)
