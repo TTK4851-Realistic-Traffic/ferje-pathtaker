@@ -12,7 +12,7 @@ ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
 
 
 def _timestamp_as_epoch_milliseconds(timestamp: str) -> int:
-    as_datetime = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S%z')
+    as_datetime = datetime.fromisoformat(timestamp)
     return int(as_datetime.timestamp())
 
 

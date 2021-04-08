@@ -95,7 +95,7 @@ class TestSignalIngest(unittest.TestCase):
                 "metadata": {"length": -99, "width": 19},
             },
             {
-                "timestamp": '2018-07-01 18:22:33+00:00',
+                "timestamp": '2019-10-13 21:07:36.046698+00:00',
                 "lat": 63.6853,
                 "lon": 9.668,
                 "source": "ais",
