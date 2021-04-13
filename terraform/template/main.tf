@@ -109,6 +109,7 @@ resource "aws_api_gateway_method" "ferjepathtaker_get_waypoints" {
   authorization = "NONE"
 
   request_parameters = {
+    "method.request.header.Authorization" = true
     "method.request.querystring.start" = false
     "method.request.querystring.end" = false
     "method.request.querystring.min_lon" = false
