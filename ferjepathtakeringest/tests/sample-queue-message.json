@@ -1,0 +1,1302 @@
+[
+  {
+    "timestamp": "2019-10-13 23:07:46.053369+01:00",
+    "ferryId": "dd8cfb09-ecd5-4527-b61e-22bf78b2281e",
+    "lat": 10.3931028834306,
+    "lon": 63.4348576039544,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89099749871791,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.153436+01:00",
+    "ferryId": "42898cde-c584-4c2a-8352-319b4986fd85",
+    "lat": 10.3931034367743,
+    "lon": 63.4348574193402,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.8983122271751,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.253502+01:00",
+    "ferryId": "85df2520-be0b-41d2-ab7f-89e321d3d75f",
+    "lat": 10.3931040180785,
+    "lon": 63.4348572286411,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90414558189405,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.353569+01:00",
+    "ferryId": "3393525f-7b02-41b0-b498-3bc1d21d8b33",
+    "lat": 10.393104626609,
+    "lon": 63.434857031646,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90869245833123,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.453636+01:00",
+    "ferryId": "3a5c8c9e-7547-482e-a092-13372cccd02c",
+    "lat": 10.3931052616321,
+    "lon": 63.4348568281436,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91212373739983,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.553702+01:00",
+    "ferryId": "bf6735b2-cfd3-43de-adda-6bfc4c220f10",
+    "lat": 10.3931059224137,
+    "lon": 63.4348566179231,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91457813369008,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.653769+01:00",
+    "ferryId": "f24ac063-8b5f-4331-a40a-16d197854beb",
+    "lat": 10.39310660822,
+    "lon": 63.4348564007734,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91616904823679,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.753836+01:00",
+    "ferryId": "9a4b355e-7473-4bdd-9114-e4d9012c0997",
+    "lat": 10.3931073183169,
+    "lon": 63.4348561764833,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91699005776994,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.853903+01:00",
+    "ferryId": "b61ec64f-5a54-48b0-9c23-bf38af24478d",
+    "lat": 10.3931080519705,
+    "lon": 63.4348559448418,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.9171188098888,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:46.953969+01:00",
+    "ferryId": "394fed89-76a6-4ca7-afe7-982ef3f034ce",
+    "lat": 10.3931088084469,
+    "lon": 63.4348557056378,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91662014782052,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.054036+01:00",
+    "ferryId": "84837dbc-fa80-4e0b-9a4d-8334a62ca459",
+    "lat": 10.3931095870122,
+    "lon": 63.4348554586603,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91554850048605,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.154103+01:00",
+    "ferryId": "87fa8b95-13c2-4625-ac20-9ae8bef42f74",
+    "lat": 10.3931103869324,
+    "lon": 63.4348552036982,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91394975714374,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.254169+01:00",
+    "ferryId": "98f50e69-5084-449b-bca8-9df1b915eaff",
+    "lat": 10.3931112074735,
+    "lon": 63.4348549405405,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.91186276223596,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.354236+01:00",
+    "ferryId": "f5aa5bf8-4e5c-4873-9597-010a23dc35fb",
+    "lat": 10.3931120479017,
+    "lon": 63.434854668976,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90932042318725,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.454303+01:00",
+    "ferryId": "9e5ec029-7148-45c2-9ad6-e75ed9e1167f",
+    "lat": 10.3931129074829,
+    "lon": 63.4348543887937,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90635081390482,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.554370+01:00",
+    "ferryId": "2910dc89-da72-4d54-9420-0dc89b40b999",
+    "lat": 10.3931137854833,
+    "lon": 63.4348540997826,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90297775460836,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.654436+01:00",
+    "ferryId": "56d51408-f11d-48f4-856a-17cec43a2023",
+    "lat": 10.3931146811689,
+    "lon": 63.4348538017316,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89922160274249,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.754503+01:00",
+    "ferryId": "cca1a6a5-3f96-4b0f-9a63-d6f213347833",
+    "lat": 10.3931155938058,
+    "lon": 63.4348534944296,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89509966844088,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.854570+01:00",
+    "ferryId": "d870cf59-e6eb-4856-9ac2-377196360484",
+    "lat": 10.3931165226599,
+    "lon": 63.4348531776655,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89062664909609,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:47.954636+01:00",
+    "ferryId": "7f299360-ff87-46d6-8813-2af6f7a17148",
+    "lat": 10.3931174669975,
+    "lon": 63.4348528512283,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.8858150547465,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.054703+01:00",
+    "ferryId": "e83f86d2-ed0e-4986-96c3-d9507afb0d3f",
+    "lat": 10.3931184260566,
+    "lon": 63.4348525149414,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88070193720877,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.154770+01:00",
+    "ferryId": "4e342b9a-1864-41c6-91c2-e06a1559ff12",
+    "lat": 10.3931193985571,
+    "lon": 63.4348521692718,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87577712613936,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.254837+01:00",
+    "ferryId": "ccdfbe1d-e62d-4e1e-b1fb-14ae9345d631",
+    "lat": 10.3931203827596,
+    "lon": 63.4348518152564,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87143169717609,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.354903+01:00",
+    "ferryId": "7cb43828-1ff5-4a41-a1fa-587e3bbc1b92",
+    "lat": 10.3931213769087,
+    "lon": 63.4348514539515,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86763124197336,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.454970+01:00",
+    "ferryId": "cad7030a-df4e-4e85-8f2f-1d799cd2ab6b",
+    "lat": 10.3931223792494,
+    "lon": 63.4348510864135,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86433495256906,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.555037+01:00",
+    "ferryId": "a76f402b-74bf-4d8d-9273-1ecb3c84f488",
+    "lat": 10.3931233880263,
+    "lon": 63.4348507136989,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86150946167291,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.655103+01:00",
+    "ferryId": "82485124-8283-4c5c-831c-921fd2a6a57a",
+    "lat": 10.3931244014843,
+    "lon": 63.4348503368642,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85912787414673,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.755170+01:00",
+    "ferryId": "903714f6-3991-4c27-b4eb-c3dd43b3e117",
+    "lat": 10.393125417868,
+    "lon": 63.4348499569657,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85716907120147,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.855237+01:00",
+    "ferryId": "7d890471-7626-4ab6-97c0-f71a297df3ef",
+    "lat": 10.3931264354223,
+    "lon": 63.43484957506,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85561713178219,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:48.955303+01:00",
+    "ferryId": "5acf7b2a-cb6f-4215-acca-57d346765f04",
+    "lat": 10.393127452392,
+    "lon": 63.4348491922034,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85446089834643,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.055370+01:00",
+    "ferryId": "170ca72d-4f95-43f6-bebd-9b511156e004",
+    "lat": 10.3931284670217,
+    "lon": 63.4348488094524,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85369386120702,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.155437+01:00",
+    "ferryId": "dcbbfa9b-803e-40ec-8f39-c2bc11ba29e1",
+    "lat": 10.3931294775563,
+    "lon": 63.4348484278634,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85331385848856,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.255504+01:00",
+    "ferryId": "ab2f43c0-d454-4d81-ae94-d408de295ae2",
+    "lat": 10.3931304822406,
+    "lon": 63.4348480484929,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85332324554959,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.355570+01:00",
+    "ferryId": "1459ade8-fdc8-4f9c-9353-db0c93264eaf",
+    "lat": 10.3931314793192,
+    "lon": 63.4348476723973,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85372892578916,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.455637+01:00",
+    "ferryId": "8c4fc8e0-63a0-4211-add6-62599025e094",
+    "lat": 10.393132467037,
+    "lon": 63.434847300633,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85454267758917,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.555704+01:00",
+    "ferryId": "803d70f8-96be-46cc-8a4f-03a329c7010a",
+    "lat": 10.3931334436388,
+    "lon": 63.4348469342565,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85578154923013,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.655771+01:00",
+    "ferryId": "84bd4cba-e1b7-41fb-9ab3-7eed7d93d049",
+    "lat": 10.3931344073692,
+    "lon": 63.4348465743242,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85746846010037,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.755837+01:00",
+    "ferryId": "3353e1ce-34fe-49c1-a3b7-18fecda0512e",
+    "lat": 10.3931353564732,
+    "lon": 63.4348462218926,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85963306798844,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.855904+01:00",
+    "ferryId": "65a04a0e-5f33-40fd-9978-58e8b76ca3dc",
+    "lat": 10.3931362891954,
+    "lon": 63.4348458780181,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86231281519508,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:49.955971+01:00",
+    "ferryId": "f5ec60e8-d262-4fa0-adf0-429ed607a898",
+    "lat": 10.3931372037806,
+    "lon": 63.4348455437571,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86555441048526,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.056037+01:00",
+    "ferryId": "c88f7982-435a-4d3a-9c5e-7fc9a7430926",
+    "lat": 10.3931380985583,
+    "lon": 63.4348452201144,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86939183347745,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.156104+01:00",
+    "ferryId": "6ceb74c4-d4be-4a8b-b58f-d66162cb80a2",
+    "lat": 10.393138973352,
+    "lon": 63.4348449071849,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87345388300991,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.256171+01:00",
+    "ferryId": "161a1762-9d14-4d4d-b334-cb48828e4e8c",
+    "lat": 10.3931398292622,
+    "lon": 63.4348446042857,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87736923463645,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.356237+01:00",
+    "ferryId": "2c5447bd-a8b5-4679-840a-d8dac2e5824d",
+    "lat": 10.3931406674305,
+    "lon": 63.4348443107085,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88109672071575,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.456304+01:00",
+    "ferryId": "5aeb5ba9-6cb2-4c48-ab77-68508d9cd832",
+    "lat": 10.3931414889985,
+    "lon": 63.4348440257454,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88460569931643,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.556371+01:00",
+    "ferryId": "4d066360-5801-413b-922e-e1d49444eb78",
+    "lat": 10.3931422951079,
+    "lon": 63.4348437486883,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88786485114518,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.656438+01:00",
+    "ferryId": "ba7d1d92-a7f5-455a-beed-3518ded4c7c3",
+    "lat": 10.3931430869004,
+    "lon": 63.4348434788291,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89084257339675,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.756504+01:00",
+    "ferryId": "903d89ad-2e1c-43f1-b764-38d18c3bac5d",
+    "lat": 10.3931438655176,
+    "lon": 63.4348432154596,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89350749813297,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.856571+01:00",
+    "ferryId": "6b63edf4-10a9-429b-9966-0fb0cd8b846a",
+    "lat": 10.3931446321011,
+    "lon": 63.434842957872,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89582902075026,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:50.956638+01:00",
+    "ferryId": "a907079c-04cc-43ab-86c7-d8ab5d827fb2",
+    "lat": 10.3931453877927,
+    "lon": 63.434842705358,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89777787989587,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.056705+01:00",
+    "ferryId": "421c5a83-31a0-4480-a2c0-b922fe8168b7",
+    "lat": 10.393146133734,
+    "lon": 63.4348424572096,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89932678803404,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.156771+01:00",
+    "ferryId": "2e6be0ec-8143-4ef2-ba79-30f4895e5f4e",
+    "lat": 10.3931468710665,
+    "lon": 63.4348422127187,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90045099649868,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.256838+01:00",
+    "ferryId": "1d3d18b3-e0b9-4c0b-9312-d742c53f8b45",
+    "lat": 10.393147600932,
+    "lon": 63.4348419711772,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90112898330286,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.356905+01:00",
+    "ferryId": "cd4156fc-6bc0-44bb-a901-2063d2fb2f79",
+    "lat": 10.3931483244722,
+    "lon": 63.4348417318771,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90134295047318,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.456971+01:00",
+    "ferryId": "362aba4f-cfa5-4f0f-a80b-304d4c51ca55",
+    "lat": 10.3931490428286,
+    "lon": 63.4348414941104,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90107937363177,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.557038+01:00",
+    "ferryId": "69ba4e84-ea2e-4c85-b2ad-82309c124fbe",
+    "lat": 10.393149757143,
+    "lon": 63.4348412571688,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.90032943328596,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.657105+01:00",
+    "ferryId": "907089a0-d40e-4990-b520-e6228e26b47a",
+    "lat": 10.3931504685569,
+    "lon": 63.4348410203443,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89908934528079,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.757171+01:00",
+    "ferryId": "ce3eb3a2-8bee-4d66-9ca5-b1572c7537bf",
+    "lat": 10.393151178212,
+    "lon": 63.4348407829289,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89736053281904,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.857238+01:00",
+    "ferryId": "c8da346d-e075-4227-9830-5404c4391041",
+    "lat": 10.3931518872501,
+    "lon": 63.4348405442145,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89514978662339,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:51.957305+01:00",
+    "ferryId": "e751fa87-e13a-4ff5-b63e-111f393b0db8",
+    "lat": 10.3931525968126,
+    "lon": 63.434840303493,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.89246907155443,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.057372+01:00",
+    "ferryId": "1e73621e-3331-4cf6-91b1-1d385b89493b",
+    "lat": 10.3931533080116,
+    "lon": 63.4348400600801,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88935520609225,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.157438+01:00",
+    "ferryId": "681e6257-0003-4e9b-ab0b-78271ec02956",
+    "lat": 10.3931540214632,
+    "lon": 63.4348398136868,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88615341437604,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.257505+01:00",
+    "ferryId": "25946bde-d5c7-404d-8c14-1a22f79a72ae",
+    "lat": 10.3931547373743,
+    "lon": 63.4348395643509,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.88313810019183,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.357572+01:00",
+    "ferryId": "a31e616d-012e-41e5-ad50-2aa12ae72843",
+    "lat": 10.3931554559396,
+    "lon": 63.4348393121197,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.8803165617625,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.457639+01:00",
+    "ferryId": "3dd87f98-b82a-4f31-bfab-17b10287bdbb",
+    "lat": 10.3931561773536,
+    "lon": 63.4348390570406,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87768768765234,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.557705+01:00",
+    "ferryId": "459782a2-ea6d-4db6-abbf-34f656d8687c",
+    "lat": 10.3931569018111,
+    "lon": 63.4348387991611,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87525016985629,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.657772+01:00",
+    "ferryId": "da0073df-99e9-4c87-8d38-728f7c678efe",
+    "lat": 10.3931576295065,
+    "lon": 63.4348385385285,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87300246232956,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.757838+01:00",
+    "ferryId": "ff6c9100-873a-4e8d-8b62-e91dff3afd31",
+    "lat": 10.3931583606347,
+    "lon": 63.4348382751903,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.87094286266374,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.857905+01:00",
+    "ferryId": "56941dd5-e805-442f-81e5-1aa809395d20",
+    "lat": 10.3931590953902,
+    "lon": 63.4348380091939,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86906944047799,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:52.957972+01:00",
+    "ferryId": "4a868427-6125-4408-9cb8-c7204cd2aa96",
+    "lat": 10.3931598339676,
+    "lon": 63.4348377405867,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86738007297322,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.058039+01:00",
+    "ferryId": "4f1cbae2-6eea-42e4-8d75-9b24283a5327",
+    "lat": 10.3931605765617,
+    "lon": 63.4348374694161,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86587251140875,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.158105+01:00",
+    "ferryId": "669366b8-5535-4bb3-a708-1fc897d431b6",
+    "lat": 10.3931613233669,
+    "lon": 63.4348371957295,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86454433686842,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.258172+01:00",
+    "ferryId": "365b36f2-8f20-45cb-a62f-c8aaa0246a8d",
+    "lat": 10.393162074578,
+    "lon": 63.4348369195744,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86339294351752,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.358239+01:00",
+    "ferryId": "a513a941-ad74-4159-a4a8-b4df7a24c996",
+    "lat": 10.3931628303896,
+    "lon": 63.434836640998,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86241563964144,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.458306+01:00",
+    "ferryId": "93723889-2a6f-495d-a4da-4967e1767611",
+    "lat": 10.3931635909962,
+    "lon": 63.434836360048,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86160958529035,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.558372+01:00",
+    "ferryId": "4f20af5a-2f67-496c-aa7c-fa4e1c78ee01",
+    "lat": 10.3931643565927,
+    "lon": 63.4348360767716,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86097181884426,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.658439+01:00",
+    "ferryId": "8450a7de-7cf9-4dab-86a3-cccdb73a8414",
+    "lat": 10.3931651273735,
+    "lon": 63.4348357912162,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86049927749321,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.758506+01:00",
+    "ferryId": "74b7f4ac-ea19-46fc-a1bb-9b5e416be624",
+    "lat": 10.3931659035334,
+    "lon": 63.4348355034294,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86018882075054,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.858572+01:00",
+    "ferryId": "35731b17-e31c-4160-8134-782cb59c5f78",
+    "lat": 10.3931666852669,
+    "lon": 63.4348352134584,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86003718841907,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:53.958639+01:00",
+    "ferryId": "b4524bcd-f355-418d-862c-9cfe20fa0ab7",
+    "lat": 10.3931674727687,
+    "lon": 63.4348349213508,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86004106257088,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.058706+01:00",
+    "ferryId": "5ead0819-92e1-436b-ac4f-89571adf1a95",
+    "lat": 10.3931682661648,
+    "lon": 63.4348346271647,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86017839317271,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.158772+01:00",
+    "ferryId": "a9fc9747-4ebb-4205-a7b8-38a6d8fc0e04",
+    "lat": 10.3931690644978,
+    "lon": 63.4348343311286,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.86015399709188,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.258839+01:00",
+    "ferryId": "bb6dbe9b-6542-4fad-b06e-7f71b2d8d99f",
+    "lat": 10.3931698659467,
+    "lon": 63.4348340336069,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85973829760891,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.358906+01:00",
+    "ferryId": "11f75153-8385-495a-a015-a640fefbebe2",
+    "lat": 10.3931706686665,
+    "lon": 63.4348337349678,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85892699638312,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.458973+01:00",
+    "ferryId": "e66d87ff-01d9-4da4-b796-2c0a75b7c5c8",
+    "lat": 10.3931714708122,
+    "lon": 63.4348334355794,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85771723345935,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.559039+01:00",
+    "ferryId": "d52193b6-e6a4-477d-b438-db3a8b13f669",
+    "lat": 10.3931722705386,
+    "lon": 63.4348331358098,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85610111800187,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.659106+01:00",
+    "ferryId": "206bce3a-f2af-41b5-91c2-787ddba91922",
+    "lat": 10.3931730660008,
+    "lon": 63.4348328360271,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85406551071762,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.759173+01:00",
+    "ferryId": "7ec167c9-4df8-40e6-9114-225ad03f16bc",
+    "lat": 10.3931738553538,
+    "lon": 63.4348325365995,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.85159172889213,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.859240+01:00",
+    "ferryId": "aed95125-9dc9-4770-9e06-32056a7bf7b3",
+    "lat": 10.3931746367524,
+    "lon": 63.4348322378951,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.84865500111164,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:54.959306+01:00",
+    "ferryId": "d5fe8791-7671-4912-82d5-961d950de3dd",
+    "lat": 10.3931754083517,
+    "lon": 63.434831940282,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.84522376744029,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.059373+01:00",
+    "ferryId": "48561e6e-fbf7-48c7-8608-e798bfb9af39",
+    "lat": 10.3931761683065,
+    "lon": 63.4348316441283,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.84125863984739,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.159440+01:00",
+    "ferryId": "12a23920-ffc5-43db-af55-c941daf3461d",
+    "lat": 10.393176914772,
+    "lon": 63.4348313498023,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.83671119754562,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.259506+01:00",
+    "ferryId": "0c95c897-5152-4b41-af12-10a1b038c1c9",
+    "lat": 10.393177645903,
+    "lon": 63.4348310576719,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.83152218677223,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.359573+01:00",
+    "ferryId": "1e4faa19-a02e-45f5-b380-b050e2ea3f2c",
+    "lat": 10.3931783598545,
+    "lon": 63.4348307681054,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.82561939837116,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.459640+01:00",
+    "ferryId": "87a10a62-03ee-4150-a0be-e29839209d88",
+    "lat": 10.3931790547814,
+    "lon": 63.4348304814709,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.81891472055989,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.559706+01:00",
+    "ferryId": "a53b5681-39be-4b9a-9df0-d6044232dd38",
+    "lat": 10.3931797288388,
+    "lon": 63.4348301981364,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.81130039781197,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.659773+01:00",
+    "ferryId": "136baee9-4586-44f6-90aa-663cf69666d9",
+    "lat": 10.3931803801815,
+    "lon": 63.4348299184702,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.80264398309434,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.759840+01:00",
+    "ferryId": "70f99ddb-c1b6-4f05-acb2-07be7a0ae345",
+    "lat": 10.3931810069646,
+    "lon": 63.4348296428404,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.79278162138844,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.859907+01:00",
+    "ferryId": "fccc02dc-1185-40db-b9e0-6d369dcb5d46",
+    "lat": 10.3931816073431,
+    "lon": 63.434829371615,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.78150903164835,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  },
+  {
+    "timestamp": "2019-10-13 23:07:55.959973+01:00",
+    "ferryId": "2598dcb8-ab2f-4c95-b1c6-d644060665fd",
+    "lat": 10.3931821794717,
+    "lon": 63.4348291051623,
+    "source": "radar",
+    "metadata": {
+      "heading": 5.76856897869041,
+      "widht": 1,
+      "lenghth": 5,
+      "type": 37
+    }
+  }
+]

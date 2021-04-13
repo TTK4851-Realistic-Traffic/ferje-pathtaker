@@ -8,6 +8,8 @@ from elasticsearch import Elasticsearch, RequestsHttpConnection
 from elasticsearch_dsl import Search
 from requests_aws4auth import AWS4Auth
 
+from ferjepathtaker.search_helper import search_index
+
 ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
 
 
@@ -142,12 +144,12 @@ def _extract_query_params(event):
     return {
         'start': start,
         'end': end,
-        'min': {
-            'lat': min_lat,
+        'top_left': {
+            'lat': max_lat,
             'lon': min_lon,
         },
-        'max': {
-            'lat': max_lat,
+        'bottom_right': {
+            'lat': min_lat,
             'lon': max_lon,
         },
     }
@@ -213,22 +215,14 @@ def handler(event, context):
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
     es = _get_es(elasticsearch_hostname)
 
-    body = es.search(
-        index=ELASTICSEARCH_INDEX_NAME,
-        request_timeout=30,
-        timeout=60,
-        body={
-            'size': 10000,
-            'query': {
-                'match_all': {},
-            },
-        },
-    )
+    print(f'Request parameters: {params}')
+
+    body = search_index(es, index_name=ELASTICSEARCH_INDEX_NAME, params=params)
     body = _remove_invalid_data(es, body)
 
+    print('Converting elasticsearch to response body...')
     response = _build_response_body(body)
     csv_response = _convert_response_to_csv(response)
-    print(response)
     return {
         'statusCode': 200,
         'headers': {
