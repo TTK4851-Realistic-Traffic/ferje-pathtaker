@@ -101,12 +101,21 @@ resource "aws_api_gateway_resource" "ferjepathtaker_get_waypoints" {
   path_part = "waypoints"
 }
 
+resource "aws_api_gateway_request_validator" "ferjepathtaker_get_waypoints" {
+  name                        = "${local.qualified_name}-${aws_api_gateway_resource.ferjepathtaker_get_waypoints.path_part}-get"
+  rest_api_id                 = aws_api_gateway_rest_api.ferjepathtaker.id
+  validate_request_body       = true
+  validate_request_parameters = true
+}
+
 resource "aws_api_gateway_method" "ferjepathtaker_get_waypoints" {
   rest_api_id = aws_api_gateway_rest_api.ferjepathtaker.id
   resource_id = aws_api_gateway_resource.ferjepathtaker_get_waypoints.id
   http_method = "GET"
   // Currently set to none, but will in the future use Lambda Authorizer for Bearer Auth
   authorization = "NONE"
+
+  request_validator_id = aws_api_gateway_request_validator.ferjepathtaker_get_waypoints.id
 
   request_parameters = {
     "method.request.header.Authorization" = true
