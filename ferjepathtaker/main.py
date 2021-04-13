@@ -92,7 +92,7 @@ def _build_response_body(es_hits: dict):
             'metadata': source['metadata'],
             # Remap Elasticsearch specific field name,
             # back to our domain specific name
-            'source': source['waypoint_source'],
+            'source': source['waypointSource'],
         })
 
     return items
