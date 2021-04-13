@@ -1,2 +1,6 @@
+GET https://xy30qatok2.execute-api.us-east-1.amazonaws.com/prod/waypoints?start=1571000706&end=1571001800&min_lat=63.4230&min_lon=10.35&max_lat=63.4501&max_lon=10.422
+Authorization: Basic gemini {{ client_secret }}
+
+### Only radar
 GET https://xy30qatok2.execute-api.us-east-1.amazonaws.com/prod/waypoints?start=1571000706&end=1571001800&min_lat=63.4230&min_lon=10.35&max_lat=63.4501&max_lon=10.422&source=radar
 Authorization: Basic gemini {{ client_secret }}

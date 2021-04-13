@@ -11,6 +11,12 @@ from ferjepathtakeringest.indices import create_if_not_exists
 ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
 
 
+def chunk(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
+
 def _timestamp_as_epoch_milliseconds(timestamp: str) -> int:
     as_datetime = datetime.fromisoformat(timestamp)
     # Epoch Milliseconds is 10^12
@@ -125,12 +131,17 @@ def handler(event, context):
     messages = _get_messages_from_event(event)
     es_upload_entries = _ferry_messages_to_es_bodies(messages)
 
-    helpers.bulk(
-        es,
-        es_upload_entries,
-        request_timeout=30,
-        index=ELASTICSEARCH_INDEX_NAME,
-    )
+    # Upload documents in bulk of 100s
+    # This allows us to accept quite large bulks of messages from SQS at once,
+    # and Elasticsearch should not complain
+    chunks = chunk(es_upload_entries, 100)
+    for entries in chunks:
+        helpers.bulk(
+            es,
+            entries,
+            request_timeout=30,
+            index=ELASTICSEARCH_INDEX_NAME,
+        )
 
     return {
         'statusCode': 200,
