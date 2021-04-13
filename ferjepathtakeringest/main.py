@@ -125,7 +125,12 @@ def handler(event, context):
     messages = _get_messages_from_event(event)
     es_upload_entries = _ferry_messages_to_es_bodies(messages)
 
-    helpers.bulk(es, es_upload_entries, index=ELASTICSEARCH_INDEX_NAME)
+    helpers.bulk(
+        es,
+        es_upload_entries,
+        request_timeout=30,
+        index=ELASTICSEARCH_INDEX_NAME,
+    )
 
     return {
         'statusCode': 200,

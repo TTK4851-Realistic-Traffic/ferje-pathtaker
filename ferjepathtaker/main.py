@@ -213,16 +213,17 @@ def handler(event, context):
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
     es = _get_es(elasticsearch_hostname)
 
-    # search = Search()
-    # search.filter('')
-
-    body = es.search(index=ELASTICSEARCH_INDEX_NAME, body={
-        'size': 10000,
-        'query': {
-            'match_all': {}
-        }
-    })
-    print(body)
+    body = es.search(
+        index=ELASTICSEARCH_INDEX_NAME,
+        request_timeout=30,
+        timeout=60,
+        body={
+            'size': 10000,
+            'query': {
+                'match_all': {},
+            },
+        },
+    )
     body = _remove_invalid_data(es, body)
 
     response = _build_response_body(body)
