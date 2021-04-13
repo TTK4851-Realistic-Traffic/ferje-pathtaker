@@ -218,11 +218,6 @@ def handler(event, context):
 
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
     es = _get_es(elasticsearch_hostname)
-    es.indices.delete(index=ELASTICSEARCH_INDEX_NAME)
-    return {
-        'statusCode': 200,
-        'body': '',
-    }
 
     print(f'Request parameters: {params}')
 
