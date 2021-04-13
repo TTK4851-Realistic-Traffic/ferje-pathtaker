@@ -42,7 +42,7 @@ def search_index(es: Elasticsearch, index_name: str, params: dict):
     body = es.search(
         index=index_name,
         request_timeout=30,
-        timeout=60,
+        timeout='60s',
         body={
             'size': 10000,
             'query': {
