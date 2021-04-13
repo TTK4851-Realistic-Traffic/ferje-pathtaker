@@ -22,23 +22,25 @@ def search_index(es: Elasticsearch, index_name: str, params: dict):
             },
         })
 
+    query_filters = []
     # If we wish to only retrieve 'ais' or 'radar'
     if 'source' in params and params['source'] in VALID_WAYPOINT_TYPES:
-        matchers.append({
-            'query_string': {
-                'query': f'waypoint_source:"{params["source"]}"',
-                'analyze_wildcard': False,
+        print(f'Filtering by source: {params["source"]}')
+        query_filters.append({
+            'term': {
+                'waypointSource': params["source"],
             }
         })
 
-    query_filters = {}
     if 'top_left' in params and 'top_left' in params:
-        query_filters['geo_bounding_box'] = {
-            'location': {
-                'top_left': params['top_left'],
-                'bottom_right': params['bottom_right'],
-            },
-        }
+        query_filters.append({
+            'geo_bounding_box': {
+                'location': {
+                    'top_left': params['top_left'],
+                    'bottom_right': params['bottom_right'],
+                },
+            }
+        })
 
     body = es.search(
         index=index_name,

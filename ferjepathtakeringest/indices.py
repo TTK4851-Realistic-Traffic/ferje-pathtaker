@@ -23,7 +23,7 @@ def create_if_not_exists(es_client: Elasticsearch, index_name: str):
             'ferryId': {'type': 'keyword', 'index': True},
             # Originally named 'source', but this name is taken by elasticsearch.
             # Therefore remapped to 'waypointSource' in elasticsearch index
-            'waypointSource': {'type': 'keyword', 'index': False},
+            'waypointSource': {'type': 'keyword', 'index': True},
             'metadata': {'type': 'object', 'enabled': False},
         },
     }
