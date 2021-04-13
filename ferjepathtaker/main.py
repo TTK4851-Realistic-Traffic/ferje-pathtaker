@@ -5,7 +5,6 @@ from typing import List
 
 import boto3
 from elasticsearch import Elasticsearch, RequestsHttpConnection
-from elasticsearch_dsl import Search
 from requests_aws4auth import AWS4Auth
 
 from ferjepathtaker.search_helper import search_index
@@ -90,7 +89,8 @@ def _build_response_body(es_hits: dict):
             'ferryId': source['ferryId'],
             'timestamp': source['timestamp'],
             'location': source['location'],
-            'metadata': source['metadata']
+            'metadata': source['metadata'],
+            'source': source['source'],
         })
 
     return items
@@ -98,14 +98,13 @@ def _build_response_body(es_hits: dict):
 
 def _convert_response_to_csv(response: List[dict]) -> str:
     rows = [
-        ['ferryId', 'timestamp', 'lat', 'lon', 'heading', 'length', 'width']
+        ['ferryId', 'timestamp', 'lat', 'lon', 'heading', 'length', 'width', 'source']
     ]
 
     # The CSV does not know what None is, we call it "null"
     csv_friendly_null = 'null'
 
     for item in response:
-        print(f'Converting response item to csv: {item}')
         row = [
             item['ferryId'],
             str(item['timestamp']),
@@ -114,13 +113,13 @@ def _convert_response_to_csv(response: List[dict]) -> str:
             str(item['metadata']['heading']) if 'heading' in item['metadata'] else csv_friendly_null,
             str(item['metadata']['length']) if 'length' in item['metadata'] else csv_friendly_null,
             str(item['metadata']['width']) if 'width' in item['metadata'] else csv_friendly_null,
+            str(item['source']) if 'source' in item else csv_friendly_null,
         ]
         rows.append(row)
 
     csv = []
     for row in rows:
         csv.append(','.join(row))
-    print(f'Complete CSV file: {csv}')
     return '\n'.join(csv)
 
 
@@ -141,9 +140,12 @@ def _extract_query_params(event):
     max_lon = raw_query['max_lon']
     max_lon = float(max_lon)
 
+    source = raw_query.get('source', None)
+
     return {
         'start': start,
         'end': end,
+        'source': source,
         'top_left': {
             'lat': max_lat,
             'lon': min_lon,

@@ -22,10 +22,11 @@ def search_index(es: Elasticsearch, index_name: str, params: dict):
             },
         })
 
-    if 'waypoint_type' in params and params['waypoint_type'] in VALID_WAYPOINT_TYPES:
+    # If we wish to only retrieve 'ais' or 'radar'
+    if 'source' in params and params['source'] in VALID_WAYPOINT_TYPES:
         matchers.append({
             'query_string': {
-                'query': f'type:"{params["waypoint_type"]}"',
+                'query': f'source:"{params["source"]}"',
                 'analyze_wildcard': False,
             }
         })

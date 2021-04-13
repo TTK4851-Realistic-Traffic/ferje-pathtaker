@@ -20,3 +20,6 @@ ferjeimporter/tests/testdata/*.csv
 
 *-secrets.env
 http-client.private.env.json
+
+# Used to test output from elasticsearch
+output.csv

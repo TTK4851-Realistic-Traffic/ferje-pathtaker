@@ -374,7 +374,7 @@ resource "aws_elasticsearch_domain" "waypoints" {
     {
       "Action": ["es:*"],
       "Principal": {
-        "AWS": ["${aws_iam_role.pathtaker_ingest.arn}", "${aws_iam_role.pathtaker.arn}"]
+        "AWS": ["${aws_iam_role.pathtaker_ingest.arn}", "${aws_iam_role.pathtaker.arn}", "${data.aws_caller_identity.current.arn}"]
       },
       "Resource": "arn:aws:es:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:domain/${local.elasticsearch_domain_name}/*",
       "Effect": "Allow"

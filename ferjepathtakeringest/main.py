@@ -13,7 +13,8 @@ ELASTICSEARCH_INDEX_NAME = 'ferry_waypoints'
 
 def _timestamp_as_epoch_milliseconds(timestamp: str) -> int:
     as_datetime = datetime.fromisoformat(timestamp)
-    return int(as_datetime.timestamp())
+    # Epoch Milliseconds is 10^12
+    return int(as_datetime.timestamp()) * 1000
 
 
 def flatten(items: List[list]) -> list:
