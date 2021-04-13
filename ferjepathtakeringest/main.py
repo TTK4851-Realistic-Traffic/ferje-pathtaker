@@ -118,7 +118,6 @@ def _ferry_messages_to_es_bodies(messages: List[dict]) -> List[dict]:
 
 def handler(event, context):
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
-    print(f'Event: {event}')
     es = _get_es(elasticsearch_hostname)
     # Ensure the index exists before we try to push data to it
     create_if_not_exists(es, ELASTICSEARCH_INDEX_NAME)

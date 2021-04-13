@@ -115,6 +115,7 @@ resource "aws_api_gateway_method" "ferjepathtaker_get_waypoints" {
     "method.request.querystring.min_lat" = false
     "method.request.querystring.max_lon" = false
     "method.request.querystring.max_lat" = false
+    "method.request.querystring.source" = false
   }
 }
 
