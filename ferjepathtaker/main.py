@@ -90,7 +90,9 @@ def _build_response_body(es_hits: dict):
             'timestamp': source['timestamp'],
             'location': source['location'],
             'metadata': source['metadata'],
-            'source': source['source'],
+            # Remap Elasticsearch specific field name,
+            # back to our domain specific name
+            'source': source['waypoint_source'],
         })
 
     return items
@@ -216,6 +218,7 @@ def handler(event, context):
 
     elasticsearch_hostname = os.environ.get("ELASTICSEARCH_HOSTNAME")
     es = _get_es(elasticsearch_hostname)
+    es.indices.delete(index=ELASTICSEARCH_INDEX_NAME)
 
     print(f'Request parameters: {params}')
 

@@ -21,7 +21,9 @@ def create_if_not_exists(es_client: Elasticsearch, index_name: str):
             # Stores our latitude and longitude
             'location': {'type': 'geo_point'},
             'ferryId': {'type': 'keyword', 'index': True},
-            'waypoint_type': {'type': 'keyword', 'index': False},
+            # Originally named 'source', but this name is taken by elasticsearch.
+            # Therefore remapped to 'waypoint_source' in elasticsearch index
+            'waypoint_source': {'type': 'keyword', 'index': False},
             'metadata': {'type': 'object', 'enabled': False},
         },
     }

@@ -26,7 +26,7 @@ def search_index(es: Elasticsearch, index_name: str, params: dict):
     if 'source' in params and params['source'] in VALID_WAYPOINT_TYPES:
         matchers.append({
             'query_string': {
-                'query': f'source:"{params["source"]}"',
+                'query': f'waypoint_source:"{params["source"]}"',
                 'analyze_wildcard': False,
             }
         })

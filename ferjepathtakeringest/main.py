@@ -98,7 +98,7 @@ def _get_messages_from_event(event: dict) -> List[dict]:
                 'lon': message['lon'],
             },
             'timestamp': _timestamp_as_epoch_milliseconds(message['timestamp']),
-            'source': message['source'],
+            'waypoint_source': message['source'],
             'metadata': message['metadata'],
         }
         messages[index] = updated_message
